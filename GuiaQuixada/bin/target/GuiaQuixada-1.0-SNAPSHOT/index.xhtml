@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login - Guia Quixadá</title>
+        <h:outputStylesheet library="css" name="sistema.css"/>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <div id="container">
+            <div class="login">
+                <div class="login-header">
+                    <h3>Guia Quixadá</h3>
+                </div>
+                <h:form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                            <p:inputText id="usuario" placeholder="E-mail" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                            <p:password class="form-control" id="senha" placeholder="Senha"/>
+                        </div>
+                    </div>
+                    <p:commandButton icon="fa fa-sign-out" style="float: right" class="btn btn-primary btn-lg" value="Login"/>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
+

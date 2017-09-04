@@ -1,0 +1,11 @@
+com\junior\guiaquixada\controller\CadastroUsuarioBean.class
+com\junior\guiaquixada\dao\usuarioDao.class
+com\junior\guiaquixada\service\Usuarios.class
+com\junior\guiaquixada\controller\PesquisaUsuarioBean.class
+com\junior\guiaquixada\dao\GenericDao.class
+com\junior\guiaquixada\model\Usuario.class
+com\junior\guiaquixada\util\FacesUtil.class
+com\junior\guiaquixada\dao\EntidadeBase.class
+com\junior\guiaquixada\model\Situacao.class
+com\junior\guiaquixada\dao\filter\UsuarioFilter.class
+com\junior\guiaquixada\util\JPAUtil.class
