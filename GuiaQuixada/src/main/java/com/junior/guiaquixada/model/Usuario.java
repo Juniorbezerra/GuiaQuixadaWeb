@@ -12,6 +12,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Version;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -28,6 +29,7 @@ public class Usuario implements Serializable,EntidadeBase{
     private String nome;
     private String email;
     private String senha;
+    private int versao;
 
     @Id
     @GeneratedValue
@@ -49,7 +51,7 @@ public class Usuario implements Serializable,EntidadeBase{
         this.situacao = situacao;
     }
     
-    @NotBlank
+    @NotBlank(message = "Nome é um campo obrigatório")
     public String getNome() {
         return nome;
     }
@@ -59,7 +61,7 @@ public class Usuario implements Serializable,EntidadeBase{
     }
 
     @Email
-    @NotBlank
+    @NotBlank(message = "E-mail é um campo obrigatório")
     public String getEmail() {
         return email;
     }
@@ -68,7 +70,7 @@ public class Usuario implements Serializable,EntidadeBase{
         this.email = email;
     }
 
-    @NotBlank
+    @NotBlank(message = "Senha é um campo obrigatório")
     public String getSenha() {
         return senha;
     }
@@ -76,7 +78,16 @@ public class Usuario implements Serializable,EntidadeBase{
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    @Version
+    public int getVersao() {
+        return versao;
+    }
 
+    public void setVersao(int versao) {
+        this.versao = versao;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -101,4 +112,6 @@ public class Usuario implements Serializable,EntidadeBase{
         }
         return true;
     }
+
+    
 }

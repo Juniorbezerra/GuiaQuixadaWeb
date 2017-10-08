@@ -1,5 +1,5 @@
 com\junior\guiaquixada\controller\CadastroUsuarioBean.class
-com\junior\guiaquixada\dao\usuarioDao.class
+com\junior\guiaquixada\dao\UsuarioDao.class
 com\junior\guiaquixada\service\Usuarios.class
 com\junior\guiaquixada\controller\PesquisaUsuarioBean.class
 com\junior\guiaquixada\dao\GenericDao.class

@@ -52,11 +52,29 @@
                                 Dashboard</a></li>
                         <li>
                             <a href="javascript:;" data-toggle="collapse"
-                               data-target="#demo"><i class="fa fa-fw fa fa-user"></i>Usuários<i
+                               data-target="#usuario"><i class="fa fa-fw fa fa-user"></i> Usuários<i
                                     class="fa fa-fw fa-caret-down"></i></a>
-                            <ul id="demo" class="collapse">
+                            <ul id="usuario" class="collapse">
                                 <li><h:link outcome="/usuario/CadastroUsuario"><i class="fa fa-fw fa fa-file-o"></i> Novo Usuário</h:link></li>
                                 <li><h:link outcome="/usuario/PesquisaUsuario"><i class="fa fa-fw fa fa fa-search"></i> Pesquisar Usuário</h:link></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse"
+                               data-target="#categoria"><i class="fa fa-fw fa fa-tag"></i> Categoria<i
+                                    class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="categoria" class="collapse">
+                                <li><h:link outcome="/categoriaHospedagem/CadastroCategoria"><i class="fa fa-fw fa fa-file-o"></i> Nova Categoria</h:link></li>
+                                <li><h:link outcome="/usuario/PesquisaUsuario"><i class="fa fa-fw fa fa fa-search"></i> Pesquisar Categoria</h:link></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse"
+                               data-target="#subcategoria"><i class="fa fa-fw fa fa-tags"></i> Subcategoria<i
+                                    class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="subcategoria" class="collapse">
+                                <li><h:link outcome="/categoriaHospedagem/CadastroCategoria"><i class="fa fa-fw fa fa-file-o"></i> Nova Subcategoria</h:link></li>
+                                <li><h:link outcome="/usuario/PesquisaUsuario"><i class="fa fa-fw fa fa fa-search"></i> Pesquisar Subcategoria</h:link></li>
                             </ul>
                         </li>
                     </ul>

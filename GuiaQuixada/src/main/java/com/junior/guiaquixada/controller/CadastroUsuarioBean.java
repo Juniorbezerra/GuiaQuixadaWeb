@@ -1,9 +1,8 @@
 package com.junior.guiaquixada.controller;
 
-import com.junior.guiaquixada.dao.usuarioDao;
+import com.junior.guiaquixada.dao.UsuarioDao;
 import com.junior.guiaquixada.model.Situacao;
 import com.junior.guiaquixada.model.Usuario;
-import com.junior.guiaquixada.service.Usuarios;
 import com.junior.guiaquixada.util.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -25,7 +24,7 @@ public class CadastroUsuarioBean implements Serializable {
     }
     
     public void salvar() {
-        usuarioDao.getInstance().salvarOuAtualizar(usuario);
+        UsuarioDao.getInstance().salvarOuAtualizar(usuario);
         limpar();
         FacesUtil.addInfoMessage("Usuário salvo com sucesso");
         
@@ -46,5 +45,10 @@ public class CadastroUsuarioBean implements Serializable {
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
     
 }

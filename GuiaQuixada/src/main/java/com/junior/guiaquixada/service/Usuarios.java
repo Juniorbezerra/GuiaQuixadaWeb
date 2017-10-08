@@ -5,7 +5,7 @@
  */
 package com.junior.guiaquixada.service;
 
-import com.junior.guiaquixada.dao.usuarioDao;
+import com.junior.guiaquixada.dao.UsuarioDao;
 import com.junior.guiaquixada.model.Usuario;
 import com.junior.guiaquixada.util.FacesUtil;
 import java.io.Serializable;
@@ -26,5 +26,17 @@ public class Usuarios implements Serializable{
             instance = new Usuarios();
         }
         return instance;
+    }
+    
+    
+    public void salvar(Usuario usuario){
+        
+        if(!UsuarioDao.getInstance().buscarEmail(usuario.getEmail())){
+            UsuarioDao.getInstance().salvarOuAtualizar(usuario);
+            FacesUtil.addInfoMessage("Usuário salvo com sucesso");
+        }else{
+        
+            FacesUtil.addErrorMessage("E-mail já cadastrado");
+        }
     }
 }
