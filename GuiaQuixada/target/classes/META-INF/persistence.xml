@@ -4,8 +4,9 @@
     <!-- nome da unidade de persistência -->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <!-- nome do provedor -->
-    <class>com.junior.guiaquixada.model.CategoriaHospedagem</class>
-    <class>com.junior.guiaquixada.model.Hospedagem</class>
+    <class>com.junior.guiaquixada.model.Usuario</class>
+    <class>com.junior.guiaquixada.model.Categoria</class>
+    <class>com.junior.guiaquixada.model.Subcategoria</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/guia"/>
       <!-- url de conexão do banco -->

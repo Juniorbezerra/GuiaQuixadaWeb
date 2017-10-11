@@ -8,8 +8,11 @@ package com.junior.guiaquixada.model;
 import com.junior.guiaquixada.dao.EntidadeBase;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -18,6 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author Junior Bezerra
  */
+@Entity
 public class Subcategoria implements Serializable, EntidadeBase {
 
     private Long id;
@@ -26,9 +30,15 @@ public class Subcategoria implements Serializable, EntidadeBase {
     private byte[] imagem;
     private Categoria categoria;
 
+     @Id
+    @GeneratedValue
     @Override
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @NotEmpty
@@ -58,7 +68,6 @@ public class Subcategoria implements Serializable, EntidadeBase {
         this.categoria = categoria;
     }
 
-    @NotEmpty
     @Lob
     public byte[] getImagem() {
         return imagem;

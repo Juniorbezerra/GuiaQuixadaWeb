@@ -13,7 +13,7 @@
             <property name="javax.persistence.jdbc.password" value="91359371" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" /> <!-- driver de conexão do banco -->
 
-            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- geração de tabelas do banco -->
+            <property name="hibernate.hbm2ddl.auto" value="create" /> <!-- geração de tabelas do banco -->
             <property name="hibernate.show_sql" value="true" /> <!-- mostrar comandos sql executados pelo JPA -->
             <property name="hibernate.format_sql" value="true" /> <!-- formatar comandos sql executados pelo JPA -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" /> <!-- dialeto do banco -->

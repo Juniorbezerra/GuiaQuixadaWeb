@@ -8,17 +8,20 @@ package com.junior.guiaquixada.model;
 import com.junior.guiaquixada.dao.EntidadeBase;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author Junior Bezerra
  */
+@Entity
 public class Categoria implements Serializable,EntidadeBase{
     
     private Long id;
@@ -26,14 +29,18 @@ public class Categoria implements Serializable,EntidadeBase{
     private String descricao;
     private byte[] imagem;
 
-    @Override
     @Id
     @GeneratedValue
+    @Override
     public Long getId() {
-       return id;
+        return id;
     }
 
-    @NotEmpty
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @NotEmpty(message = "Preencher o campo descrição")
     public String getDescricao() {
         return descricao;
     }
@@ -52,7 +59,7 @@ public class Categoria implements Serializable,EntidadeBase{
     }
     
     @Lob
-    @NotEmpty
+    @NotNull(message = "selecione a imagem")
     public byte[] getImagem() {
         return imagem;
     }

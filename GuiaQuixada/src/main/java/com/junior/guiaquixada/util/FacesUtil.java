@@ -31,5 +31,10 @@ public class FacesUtil {
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
 	}
+        
+        public static void addInfoAviso(String message) {
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage(FacesMessage.SEVERITY_WARN, message, message));
+	}
 	
 }
