@@ -154,6 +154,7 @@
             <artifactId>omnifaces</artifactId>
             <version>1.5</version>
         </dependency>
+        
     </dependencies>
 
     <build>

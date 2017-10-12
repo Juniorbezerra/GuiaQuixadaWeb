@@ -1,0 +1,67 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="conteudo">
+        <f:metadata>
+            <o:viewParam name="sub" value="#{cadastroSubcategoriaBean.subcategoria}"/>
+        </f:metadata>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">
+                    Cadastro de categoria
+                </h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
+                    </li>
+                    <li class="active"><i class="fa fa-file"></i> Cadastro de categoria</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p:messages autoUpdate="true" closable="true" />
+                <h:form enctype="multipart/form-data">
+                    <div class="form-group col-lg-3">
+                        <p:outputLabel styleClass="control-label" for="situacao" value="Situação"/>
+                        <h:selectOneMenu styleClass="form-control" id="situacao" value="#{cadastroSubcategoriaBean.subcategoria.situacao}">
+                            <f:selectItems value="#{cadastroSubcategoriaBean.situacao}" var="s" itemValue="#{s}" itemLabel="#{s.situacao}"/>
+                        </h:selectOneMenu>
+                    </div>
+                    
+                    <div class="form-group col-lg-9">
+                        <p:outputLabel styleClass="control-label" for="categoria" value="Categoria"/>
+                        <h:selectOneMenu required="true" styleClass="form-control" id="categoria" value="#{cadastroSubcategoriaBean.subcategoria.categoria}">
+                            <f:selectItem itemLabel="Selecione a categoria" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{cadastroSubcategoriaBean.categorias}" var="s" itemValue="#{c}" itemLabel="#{s.descricao}"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <p:outputLabel styleClass="control-label" for="descricao" value="Descrição"/>
+                        <p:inputText required="true" class="form-control" id="descricao" placeholder="Informe a descrição" value="#{cadastroSubcategoriaBean.subcategoria.descricao}"/>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <p:outputLabel styleClass="control-label" for="imagem" value="Imagem"/>
+                        <p:fileUpload fileUploadListener="#{cadastroSubcategoriaBean.upload}" auto="false" required="true"
+                                      mode="advanced"  id="imagem" label="Escolher" uploadLabel="Enviar"
+                                      messageTemplate="Selecione a imagem"
+                                      invalidFileMessage="É permitido somente imagem em formato png" fileLimit="1"
+                                      fileLimitMessage="Só é possível escolher 1 arquivo."
+                                      allowTypes="/(\.|\/)(png)$/"/>
+                        <p:graphicImage  id="foto" cache="false"/>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <p:commandButton styleClass="btn btn-primary" icon="fa fa-floppy-o" action="#{cadastroSubcategoriaBean.salvar}" value="Salvar" update="@form"/>
+                        <p:commandButton styleClass="btn btn-danger" icon="fa fa-times" action="#{cadastroSubcategoriaBean.limpar}" value="Cancelar" update="@form"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,6 +1,6 @@
-C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\service\Usuarios.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\controller\PesquisarCategoriaBean.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\util\FacesUtil.java
+C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\converter\CategoriaConverter.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\dao\GenericDao.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\controller\PesquisaUsuarioBean.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\util\JPAUtil.java
@@ -15,3 +15,4 @@ C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\jav
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\dao\CategoriaDao.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\dao\filter\UsuarioFilter.java
 C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\dao\EntidadeBase.java
+C:\Users\Junior Bezerra\Documents\GitHub\GuiaQuixadaWeb\GuiaQuixada\src\main\java\com\junior\guiaquixada\dao\filter\CategoriaFilter.java

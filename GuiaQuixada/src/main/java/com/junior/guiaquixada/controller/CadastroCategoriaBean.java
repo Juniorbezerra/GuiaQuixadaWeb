@@ -2,6 +2,7 @@ package com.junior.guiaquixada.controller;
 
 import com.junior.guiaquixada.dao.CategoriaDao;
 import com.junior.guiaquixada.model.Categoria;
+import com.junior.guiaquixada.model.Situacao;
 import com.junior.guiaquixada.util.FacesUtil;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
@@ -11,14 +12,14 @@ import org.primefaces.event.FileUploadEvent;
 @ManagedBean
 @ViewScoped
 public class CadastroCategoriaBean implements Serializable {
-
-
+    
     private Categoria categoria;
     byte[] foto;
-    
-    
+   
     public CadastroCategoriaBean() {
+        
         this.limpar();
+        
     }
 
     public void limpar() {
@@ -29,10 +30,10 @@ public class CadastroCategoriaBean implements Serializable {
     public void salvar() {
 
         try {
-            if (this.foto == null) {
+            if (categoria.getImagem() == null) {
                 FacesUtil.addInfoAviso("selecione a imagem");
             }else{
-            categoria.setImagem(foto);
+            
             CategoriaDao.getInstance().salvarOuAtualizar(categoria);
             limpar();
             FacesUtil.addInfoMessage("Categoria salva com sucesso");
@@ -48,6 +49,7 @@ public class CadastroCategoriaBean implements Serializable {
         try {
             
             foto = evento.getFile().getContents();
+            categoria.setImagem(foto);
             
         } catch (Exception erro) {
             FacesUtil.addErrorMessage("Ocorreu um erro ao tentar realizar o upload de arquivo");
@@ -59,4 +61,11 @@ public class CadastroCategoriaBean implements Serializable {
         return categoria;
     }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    public Situacao[] getSituacao() {
+        return Situacao.values();
+    }
 }

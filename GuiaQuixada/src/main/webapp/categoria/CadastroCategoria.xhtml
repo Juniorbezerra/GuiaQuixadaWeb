@@ -7,9 +7,9 @@
                 xmlns:o="http://omnifaces.org/ui">
 
     <ui:define name="conteudo">
-        <!--        <f:metadata>
-                    <o:viewParam name="usuario" value="#{cadastroUsuarioBean.usuario}"/>
-                </f:metadata>-->
+        <f:metadata>
+            <o:viewParam name="categoria" value="#{cadastroCategoriaBean.categoria}"/>
+        </f:metadata>
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">
@@ -29,7 +29,7 @@
                     <div class="form-group col-lg-3">
                         <p:outputLabel styleClass="control-label" for="situacao" value="Situação"/>
                         <h:selectOneMenu styleClass="form-control" id="situacao" value="#{cadastroCategoriaBean.categoria.situacao}">
-                            <f:selectItems value="#{cadastroUsuarioBean.situacao}" var="s" itemValue="#{s}" itemLabel="#{s.situacao}"/>
+                            <f:selectItems value="#{cadastroCategoriaBean.situacao}" var="s" itemValue="#{s}" itemLabel="#{s.situacao}"/>
                         </h:selectOneMenu>
                     </div>
 
@@ -45,6 +45,7 @@
                                       invalidFileMessage="É permitido somente imagem em formato png" fileLimit="1"
                                       fileLimitMessage="Só é possível escolher 1 arquivo."
                                       allowTypes="/(\.|\/)(png)$/"/>
+                        <p:graphicImage  id="foto" cache="false"/>
                     </div>
 
                     <div class="col-lg-12">

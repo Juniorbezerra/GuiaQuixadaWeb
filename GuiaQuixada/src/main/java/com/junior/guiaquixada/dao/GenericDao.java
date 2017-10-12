@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 
 
 public class GenericDao<T extends EntidadeBase> implements Serializable {
@@ -58,6 +59,18 @@ public class GenericDao<T extends EntidadeBase> implements Serializable {
             Criteria criteria = session.createCriteria(classe);
 
             return criteria.list();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<T> getListaEntidadeOrdenado(Class<T> classe) {
+        EntityManager em = JPAUtil.createEntityManager();
+        try {
+            Session session = em.unwrap(Session.class);
+            Criteria criteria = session.createCriteria(classe);
+
+            return criteria.addOrder(Order.asc("descricao")).list();
         } finally {
             em.close();
         }
