@@ -8,8 +8,6 @@ package com.junior.guiaquixada.model;
 import com.junior.guiaquixada.dao.EntidadeBase;
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
@@ -25,7 +23,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Usuario implements Serializable,EntidadeBase{
  	
     private Long id;
-    private Situacao situacao;
+    private boolean status;
     private String nome;
     private String email;
     private String senha;
@@ -42,15 +40,6 @@ public class Usuario implements Serializable,EntidadeBase{
         this.id = id;
     }
     
-    @Enumerated(EnumType.STRING)
-     public Situacao getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(Situacao situacao) {
-        this.situacao = situacao;
-    }
-    
     @NotBlank(message = "Nome é um campo obrigatório")
     public String getNome() {
         return nome;
@@ -58,6 +47,14 @@ public class Usuario implements Serializable,EntidadeBase{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+     public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Email
@@ -112,6 +109,4 @@ public class Usuario implements Serializable,EntidadeBase{
         }
         return true;
     }
-
-    
 }

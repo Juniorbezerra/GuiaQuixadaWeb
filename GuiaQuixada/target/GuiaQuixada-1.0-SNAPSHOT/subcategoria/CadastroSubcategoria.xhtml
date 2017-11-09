@@ -8,17 +8,17 @@
 
     <ui:define name="conteudo">
         <f:metadata>
-            <o:viewParam name="sub" value="#{cadastroSubcategoriaBean.subcategoria}"/>
+            <o:viewParam name="sub" value="#{cadastroSubcategoriaMB.subcategoria}"/>
         </f:metadata>
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="page-header">
-                    Cadastro de categoria
+                    Cadastro de Subcategoria
                 </h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
                     </li>
-                    <li class="active"><i class="fa fa-file"></i> Cadastro de categoria</li>
+                    <li class="active"><i class="fa fa-file"></i> Cadastro de Subcategoria</li>
                 </ol>
             </div>
         </div>
@@ -28,37 +28,35 @@
                 <h:form enctype="multipart/form-data">
                     <div class="form-group col-lg-3">
                         <p:outputLabel styleClass="control-label" for="situacao" value="Situação"/>
-                        <h:selectOneMenu styleClass="form-control" id="situacao" value="#{cadastroSubcategoriaBean.subcategoria.situacao}">
-                            <f:selectItems value="#{cadastroSubcategoriaBean.situacao}" var="s" itemValue="#{s}" itemLabel="#{s.situacao}"/>
-                        </h:selectOneMenu>
+                        <p:selectBooleanButton class="form-control" id="situacao" value="#{cadastroSubcategoriaMB.subcategoria.status}" onLabel="Ativo" offLabel="Inativo"/> 
                     </div>
                     
                     <div class="form-group col-lg-9">
                         <p:outputLabel styleClass="control-label" for="categoria" value="Categoria"/>
-                        <h:selectOneMenu required="true" styleClass="form-control" id="categoria" value="#{cadastroSubcategoriaBean.subcategoria.categoria}">
+                        <h:selectOneMenu required="true" styleClass="form-control" requiredMessage="Selecione a categoria" id="categoria" value="#{cadastroSubcategoriaMB.subcategoria.categoria}">
                             <f:selectItem itemLabel="Selecione a categoria" itemValue="" noSelectionOption="true"/>
-                            <f:selectItems value="#{cadastroSubcategoriaBean.categorias}" var="s" itemValue="#{c}" itemLabel="#{s.descricao}"/>
+                            <f:selectItems value="#{cadastroSubcategoriaMB.categorias}" var="s" itemValue="#{c}" itemLabel="#{s.descricao}"/>
                         </h:selectOneMenu>
                     </div>
 
                     <div class="form-group col-lg-12">
                         <p:outputLabel styleClass="control-label" for="descricao" value="Descrição"/>
-                        <p:inputText required="true" class="form-control" id="descricao" placeholder="Informe a descrição" value="#{cadastroSubcategoriaBean.subcategoria.descricao}"/>
+                        <p:inputText required="true" class="form-control" id="descricao" maxlength="30" requiredMessage="Informe a descrição" placeholder="Informe a descrição" value="#{cadastroSubcategoriaMB.subcategoria.descricao}"/>
                     </div>
                     <div class="form-group col-lg-12">
                         <p:outputLabel styleClass="control-label" for="imagem" value="Imagem"/>
-                        <p:fileUpload fileUploadListener="#{cadastroSubcategoriaBean.upload}" auto="false" required="true"
+                        <p:fileUpload fileUploadListener="#{cadastroSubcategoriaMB.upload}" auto="false" required="true"
                                       mode="advanced"  id="imagem" label="Escolher" uploadLabel="Enviar"
                                       messageTemplate="Selecione a imagem"
                                       invalidFileMessage="É permitido somente imagem em formato png" fileLimit="1"
-                                      fileLimitMessage="Só é possível escolher 1 arquivo."
+                                      fileLimitMessage="Só é possível escolher 1 imagem."
                                       allowTypes="/(\.|\/)(png)$/"/>
                         <p:graphicImage  id="foto" cache="false"/>
                     </div>
 
-                    <div class="col-lg-12">
-                        <p:commandButton styleClass="btn btn-primary" icon="fa fa-floppy-o" action="#{cadastroSubcategoriaBean.salvar}" value="Salvar" update="@form"/>
-                        <p:commandButton styleClass="btn btn-danger" icon="fa fa-times" action="#{cadastroSubcategoriaBean.limpar}" value="Cancelar" update="@form"/>
+                    <div class="col-lg-12 form-group">
+                        <p:commandButton styleClass="btn btn-primary" icon="fa fa-floppy-o" action="#{cadastroSubcategoriaMB.salvar}" value="Salvar" update="@form"/>
+                        <p:commandButton styleClass="btn btn-danger" icon="fa fa-times" action="#{cadastroSubcategoriaMB.limpar}" value="Cancelar" update="@form"/>
                     </div>
                 </h:form>
             </div>

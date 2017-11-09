@@ -8,9 +8,8 @@ package com.junior.guiaquixada.model;
 import com.junior.guiaquixada.dao.EntidadeBase;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -26,11 +25,11 @@ public class Subcategoria implements Serializable, EntidadeBase {
 
     private Long id;
     private String descricao;
-    private Situacao situacao;
+    private boolean status;
     private byte[] imagem;
     private Categoria categoria;
 
-     @Id
+    @Id
     @GeneratedValue
     @Override
     public Long getId() {
@@ -41,22 +40,14 @@ public class Subcategoria implements Serializable, EntidadeBase {
         this.id = id;
     }
 
-    @NotEmpty
+    @NotEmpty(message = "informe a descrição da subcategoria")
+    @Column(length = 30)
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    @Enumerated(EnumType.STRING)
-    public Situacao getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(Situacao situacao) {
-        this.situacao = situacao;
     }
 
     @ManyToOne
@@ -100,6 +91,14 @@ public class Subcategoria implements Serializable, EntidadeBase {
             return false;
         }
         return true;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
 }

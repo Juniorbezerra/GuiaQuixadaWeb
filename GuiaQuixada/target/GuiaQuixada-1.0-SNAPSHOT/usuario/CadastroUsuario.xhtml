@@ -1,14 +1,14 @@
 <ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
-               xmlns="http://www.w3.org/1999/xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:o="http://omnifaces.org/ui">
-    
+
     <ui:define name="conteudo">
         <f:metadata>
-            <o:viewParam name="usuario" value="#{cadastroUsuarioBean.usuario}"/>
+            <o:viewParam name="usuario" value="#{cadastroUsuarioMB.usuario}"/>
         </f:metadata>
         <div class="row">
             <div class="col-lg-12">
@@ -27,27 +27,28 @@
                 <p:messages autoUpdate="true" closable="true" />
                 <h:form>
                     <div class="form-group col-lg-3">
-                        <h:outputLabel styleClass="control-label" for="situacao" value="Situação"/>
-                        <h:selectOneMenu styleClass="form-control" id="situacao" value="#{cadastroUsuarioBean.usuario.situacao}">
-                            <f:selectItems value="#{cadastroUsuarioBean.situacao}" var="s" itemValue="#{s}" itemLabel="#{s.situacao}"/>
-                        </h:selectOneMenu>
+                        <div class="form-group col-lg-3">
+                            <p:outputLabel  styleClass="control-label" for="situacao" value="Situação"/>
+                            <p:selectBooleanButton class="form-control" id="situacao" value="#{cadastroUsuarioMB.usuario.status}" onLabel="Ativo" offLabel="Inativo"/>    
+                        </div>
                     </div>
 
                     <div class="form-group col-lg-9">
                         <h:outputLabel styleClass="control-label" for="nome" value="Nome"/>
-                        <p:inputText  class="form-control" id="nome" placeholder="Informe seu nome" value="#{cadastroUsuarioBean.usuario.nome}"/>
+                        <p:inputText  class="form-control" id="nome" placeholder="Informe seu nome" value="#{cadastroUsuarioMB.usuario.nome}"/>
                     </div>
                     <div class="form-group col-lg-6">
                         <h:outputLabel styleClass="control-label" for="email" value="E-mail"/>
-                        <p:inputText  class="form-control" id="email" placeholder="Informe seu E-mail" value="#{cadastroUsuarioBean.usuario.email}"/>
+                        <p:inputText  class="form-control" id="email" placeholder="Informe seu E-mail" value="#{cadastroUsuarioMB.usuario.email}"/>
                     </div>
                     <div class="form-group col-lg-6">
                         <h:outputLabel styleClass="control-label" for="senha" value="Senha"/>
-                        <p:password  class="form-control" id="senha" placeholder="Informe sua senha" value="#{cadastroUsuarioBean.usuario.senha}"/>
+                        <p:password  class="form-control" feedback="true"  id="senha" placeholder="Informe sua senha" value="#{cadastroUsuarioMB.usuario.senha}" 
+                                     promptLabel="Informe sua senha"  weakLabel="Força da senha : Fraca" goodLabel="Força da senha : Média" strongLabel="Força da senha : Forte"/>
                     </div>
-                    <p:inputText type="hidden" value="#{cadastroUsuarioBean.usuario.versao}"/>
-                    <div class="col-lg-12">
-                        <p:commandButton styleClass="btn btn-primary" icon="fa fa-floppy-o" action="#{cadastroUsuarioBean.salvar()}" value="Salvar" update="@form"/>
+                    <p:inputText type="hidden" value="#{cadastroUsuarioMB.usuario.versao}"/>
+                    <div class="col-lg-12 form-group">
+                        <p:commandButton styleClass="btn btn-primary" icon="fa fa-floppy-o" action="#{cadastroUsuarioMB.salvar()}" value="Salvar" update="@form"/>
                     </div>
                 </h:form>
             </div>

@@ -8,6 +8,7 @@ package com.junior.guiaquixada.model;
 import com.junior.guiaquixada.dao.EntidadeBase;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,7 +26,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Categoria implements Serializable,EntidadeBase{
     
     private Long id;
-    private Situacao situacao;
+    private boolean status;
     private String descricao;
     private byte[] imagem;
 
@@ -40,7 +41,8 @@ public class Categoria implements Serializable,EntidadeBase{
         this.id = id;
     }
 
-    @NotEmpty(message = "Preencher o campo descrição")
+    @NotEmpty(message = "Informe a descrição da categoria")
+    @Column(length = 30)
     public String getDescricao() {
         return descricao;
     }
@@ -49,13 +51,12 @@ public class Categoria implements Serializable,EntidadeBase{
         this.descricao = descricao;
     }
     
-    @Enumerated(EnumType.STRING)
-     public Situacao getSituacao() {
-        return situacao;
+   public boolean isStatus() {
+        return status;
     }
 
-    public void setSituacao(Situacao situacao) {
-        this.situacao = situacao;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
     @Lob
@@ -93,6 +94,7 @@ public class Categoria implements Serializable,EntidadeBase{
         return true;
     }
 
+    
     
    
 }

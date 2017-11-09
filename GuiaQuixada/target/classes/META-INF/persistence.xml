@@ -4,6 +4,7 @@
     <!-- nome da unidade de persistência -->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <!-- nome do provedor -->
+    <class>com.junior.guiaquixada.model.Anuncio</class>
     <class>com.junior.guiaquixada.model.Usuario</class>
     <class>com.junior.guiaquixada.model.Categoria</class>
     <class>com.junior.guiaquixada.model.Subcategoria</class>

@@ -13,7 +13,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title><ui:insert name="titulo">Sistema de Pedidos de Venda</ui:insert></title>
+        <title><ui:insert name="titulo">Guia Quixadá</ui:insert></title>
 
         <h:outputStylesheet library="css" name="bootstrap.min.css"/>
         <h:outputStylesheet library="css" name="sb-admin.css"/>
@@ -33,7 +33,7 @@
                             class="icon-bar"></span> <span class="icon-bar"></span> <span
                             class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">SB Admin</a>
+                    <a class="navbar-brand" href="index.html">Guia Quixadá</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -48,8 +48,7 @@
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li><a href="#"><i class="fa fa-fw fa-dashboard"></i>
-                                Dashboard</a></li>
+                        <li><h:link outcome="/dashboard/Dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</h:link></li>
                         <li>
                             <a href="javascript:;" data-toggle="collapse"
                                data-target="#usuario"><i class="fa fa-fw fa fa-user"></i> Usuários<i
@@ -75,6 +74,15 @@
                             <ul id="subcategoria" class="collapse">
                                 <li><h:link outcome="/subcategoria/CadastroSubcategoria"><i class="fa fa-fw fa fa-file-o"></i> Nova Subcategoria</h:link></li>
                                 <li><h:link outcome="/subcategoria/PesquisaSubcategoria"><i class="fa fa-fw fa fa fa-search"></i> Pesquisar Subcategoria</h:link></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse"
+                               data-target="#anuncio"><i class="fa fa-fw fa fa-bullhorn"></i> Anúncio<i
+                                    class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="anuncio" class="collapse">
+                                <li><h:link outcome="/anuncio/CadastroAnuncio"><i class="fa fa-fw fa fa-file-o"></i> Novo Anúncio</h:link></li>
+                                <li><h:link outcome="/anuncio/PesquisaAnuncio"><i class="fa fa-fw fa fa fa-search"></i> Pesquisar Anúncio</h:link></li>
                             </ul>
                         </li>
                     </ul>

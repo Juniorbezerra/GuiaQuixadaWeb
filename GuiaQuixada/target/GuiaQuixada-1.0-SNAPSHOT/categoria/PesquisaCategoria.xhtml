@@ -10,12 +10,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h3 class="page-header">
-                        Pesquisa de Usuário
+                        Pesquisa de Categoria
                     </h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
                         </li>
-                        <li class="active"><i class="fa fa-search"></i> Pesquisa de Usuário</li>
+                        <li class="active"><i class="fa fa-search"></i> Pesquisa de Categoria</li>
                     </ol>
                 </div>
             </div>
@@ -24,9 +24,9 @@
                 <div class="form-group col-lg-6">
                     <h:outputLabel styleClass="control-label" for="email" value="Pesquisar Categoria"/>
                     <div class="input-group">
-                        <p:inputText  class="form-control"  id="email" placeholder="Pesquisar Categoria" value="#{pesquisarCategoriaBean.categoriaFilter.descricao}"/>
+                        <p:inputText  class="form-control"  id="email" placeholder="Pesquisar Categoria" value="#{pesquisaCategoriaMB.categoriaFilter.descricao}"/>
                         <div class="input-group-addon" style="padding: 0">
-                            <p:commandLink action="#{pesquisarCategoriaBean.listarCategoria()}" update="@form"><i style="padding: 8px; color: #000" class="fa fa-search" aria-hidden="true"></i></p:commandLink>
+                            <p:commandLink action="#{pesquisaCategoriaMB.listarCategoria()}" update="@form"><i style="padding: 8px; color: #000" class="fa fa-search" aria-hidden="true"></i></p:commandLink>
                         </div>
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                 <div class="table-responsive">
                     <div class="col-lg-12">
                         <p:dataTable styleClass="table table-hover" emptyMessage="Nenhum usuário encontrado."
-                                     rows="9" paginator="true" paginatorPosition="bottom" value="#{pesquisarCategoriaBean.categorias}" var="cat">
+                                     rows="9" paginator="true" paginatorPosition="bottom" value="#{pesquisaCategoriaMB.categorias}" var="cat">
                             <p:column headerText="Situação" width="100" style="text-align: center">
-                                <h:outputText value="#{cat.situacao.situacao}"/>
+                                <h:outputText value="#{(cat.status==true) ? 'Ativo':'Inativo'}"/>
                             </p:column>
                             <p:column headerText="Descrição">
                                 <h:outputText value="#{cat.descricao}"/>

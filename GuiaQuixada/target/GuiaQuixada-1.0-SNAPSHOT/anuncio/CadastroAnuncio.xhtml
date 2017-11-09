@@ -1,0 +1,175 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="conteudo">
+        <f:metadata>
+            <o:viewParam name="anu" value="#{cadastroAnuncioMB.anuncio}"/>
+        </f:metadata>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">
+                    Cadastro de Anúncio
+                </h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
+                    </li>
+                    <li class="active"><i class="fa fa-file"></i> Cadastro de Anúncio</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p:messages autoUpdate="true" closable="true" />
+            </div>
+        </div>
+        <h:form enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-building" aria-hidden="true"></i> Informações
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group col-lg-3">
+                                <p:outputLabel styleClass="control-label" for="situacao" value="Situação"/>
+                                <p:selectBooleanButton class="form-control" id="situacao" value="#{cadastroAnuncioMB.anuncio.status}" onLabel="Ativo" offLabel="Inativo"/> 
+                            </div>
+
+                            <div class="form-group col-lg-9">
+                                <p:outputLabel styleClass="control-label" for="categoria" value="Subcategoria"/>
+                                <h:selectOneMenu required="true" requiredMessage="Selecione a subcategoria" styleClass="form-control" id="categoria" value="#{cadastroAnuncioMB.anuncio.subcategoria}">
+                                    <f:selectItem itemLabel="Selecione a subcategoria" itemValue="" noSelectionOption="true" />
+                                    <f:selectItems value="#{cadastroAnuncioMB.subcategorias}" var="s" itemValue="#{s}" itemLabel="#{s.descricao}"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <p:outputLabel styleClass="control-label" for="descricao" value="Descrição"/>
+                                <p:inputText required="true" requiredMessage="Informe a descrição" maxlength="40" class="form-control" value="#{cadastroAnuncioMB.anuncio.descricao}" id="descricao" placeholder="Informe a descrição"/>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <p:outputLabel styleClass="control-label" for="imagem" value="Imagem Principal"/>
+                                <p:inputText required="true" requiredMessage="Informe o link da imagem principal" class="form-control" value="#{cadastroAnuncioMB.anuncio.imagemPrincipal}" id="imagem" placeholder="Informe o link da imagem principal"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-share-square" aria-hidden="true"></i> Descrição do Anúncio
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <p:outputLabel styleClass="control-label" for="editor" value="Descrição do Anúcio"/>
+                                <p:textEditor widgetVar="editor1" id="editor" height="185" value="#{cadastroAnuncioMB.anuncio.descricaoAnuncio}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> Endereço
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group col-lg-12">
+                                <p:outputLabel styleClass="control-label" for="endereco" value="Endereco"/>
+                                <p:inputText required="true" requiredMessage="Informe o endereço" class="form-control" id="endereco" placeholder="Informe o endereço" value="#{cadastroAnuncioMB.anuncio.endereco}"/>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <p:outputLabel styleClass="control-label" for="bairro" value="Bairro"/>
+                                <p:inputText required="true" requiredMessage="Informe o bairro" class="form-control" id="bairro" placeholder="Informe o bairro" value="#{cadastroAnuncioMB.anuncio.bairro}"/>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <p:outputLabel styleClass="control-label" for="numero" value="Numero"/>
+                                <p:inputText required="true" requiredMessage="Informe o numero" class="form-control" id="numero" placeholder="Informe o numero" value="#{cadastroAnuncioMB.anuncio.numero}"/>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <p:outputLabel styleClass="control-label" for="latitude" value="Latitude"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+                                    <p:inputText class="form-control" required="true" requiredMessage="Informe a latitude" id="latitude" placeholder="Informe a latitude" value="#{cadastroAnuncioMB.anuncio.latitude}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <p:outputLabel styleClass="control-label" for="longitude" value="Longitude"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+                                    <p:inputText class="form-control" id="longitude" required="true" requiredMessage="Informe a longitude" placeholder="Informe a longitude" value="#{cadastroAnuncioMB.anuncio.longitude}"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12">
+                                Obter Latitude e Longitude <a href="https://www.latlong.net" target="_blank">Aqui</a>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <p:outputLabel styleClass="control-label" for="telefone1" value="Telefone"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                    <p:inputMask mask="(99)999999999" required="true" requiredMessage="Informe o telefone" class="form-control" id="telefone1" placeholder="Informe o telefone" value="#{cadastroAnuncioMB.anuncio.telefone}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <p:outputLabel styleClass="control-label" for="telefone2" value="Telefone"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                    <p:inputMask mask="(99)999999999" class="form-control" id="telefone2" placeholder="Informe o telefone" value="#{cadastroAnuncioMB.anuncio.telefone2}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-share-square" aria-hidden="true"></i> Mídias sociais
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group col-lg-12">
+                                <p:outputLabel styleClass="control-label" for="email" value="Email"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                                    <p:inputText class="form-control" id="email" placeholder="Informe um email" value="#{cadastroAnuncioMB.anuncio.email}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <p:outputLabel styleClass="control-label" for="facebook" value="Facebook"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                    <p:inputText class="form-control" id="facebook" placeholder="Informe o link do facebook" value="#{cadastroAnuncioMB.anuncio.facebook}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <p:outputLabel styleClass="control-label" for="instagram" value="Instagram"/>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                    <p:inputText class="form-control" id="instagram" placeholder="Informe o link do instragram" value="#{cadastroAnuncioMB.anuncio.instagram}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+              
+            </div>
+            <div class="form-group">
+                    <p:commandButton styleClass="btn btn-primary" icon="fa fa-floppy-o" value="Salvar" update="@form" action="#{cadastroAnuncioMB.salvar}"/>
+                    <p:commandButton styleClass="btn btn-danger" icon="fa fa-times"  value="Cancelar" update="@form" action="#{cadastroAnuncioMB.limpar}"/>
+                </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

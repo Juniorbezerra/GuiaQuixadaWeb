@@ -1,0 +1,95 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="conteudo">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">
+                    Dashboard
+                </h3>
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-dashboard"></i> <a href="#">Dashboard</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tag fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><h:outputLabel value="#{pesquisaCategoriaMB.tamanhoLista}"></h:outputLabel></div>
+                                <div>Categoria</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a><h:link outcome="/categoria/PesquisaCategoria">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </h:link>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tags fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><h:outputLabel value="#{pesquisaSubcategoriaMB.tamanhoLista}"></h:outputLabel></div>
+                                <div>Subcategoria</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a><h:link outcome="/subcategoria/PesquisaSubcategoria">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </h:link>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-bullhorn fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><div class="huge"><h:outputLabel value="#{pesquisaAnuncioMB.tamanhoLista}"></h:outputLabel></div></div>
+                                <div>Anúncio</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a><h:link outcome="/anuncio/PesquisaAnuncio">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </h:link>
+                    </a>
+                </div>
+            </div>
+            <h:outputScript library="js" name="jquery.js"/>
+        </div>
+    </ui:define>
+</ui:composition>
